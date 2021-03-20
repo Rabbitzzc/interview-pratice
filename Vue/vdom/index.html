@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-Diff</title>
+</head>
+<body>
+    <div>1111</div>
+    <div id="app"></div>
+    <script>
+        console.log(1111)
+    </script>
+    <script type="module">
+        import patch from './patch.js'
+        import diff from './diff.js'
+        import Node from './vdom.js'
+        const tree = new Node('div', {className: 'div'}, [
+                new Node('h1', {style: 'color: red;'},['Vue 替换文本-原文本']),
+                new Node('ul', [
+                    new Node('li', ['1111']),
+                    new Node('li', ['2222']),
+                ])
+            ]);
+            const $dom = tree.render();
+            console.log(111, $dom);
+            const $app = document.querySelector('#app');
+            $app.replaceWith($dom);
+
+            // 延迟 5s 可以查看效果
+            setTimeout(() => {
+                const newTree = new Node('div', {id: 'div1'}, [
+                    new Node('h1', {style: 'color: red;'}, ['Vue 替换文本-替换文本']),
+                    new Node('p', {style: 'color: blue;'}, ['美团点评']),
+                    new Node('ul', [
+                        new Node('li', ['1111']),
+                        new Node('li', ['5555']),
+                        new Node('li', ['333']),
+                    ])
+                ]);
+                // 注意 patchs 也是树形结构
+                const patches = diff(tree, newTree);
+                console.log(222, patches);
+                patch($dom, patches);
+            },5000)
+    </script>
+</body>
+</html>
