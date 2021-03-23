@@ -11,6 +11,7 @@
 * https://ustbhuangyi.github.io/vue-analysis/v2/data-driven/virtual-dom.html#%E6%80%BB%E7%BB%93
 * http://hcysun.me/vue-design/zh/renderer-diff.html#%E5%87%8F%E5%B0%8Fdom%E6%93%8D%E4%BD%9C%E7%9A%84%E6%80%A7%E8%83%BD%E5%BC%80%E9%94%80
 * 函数式编程：https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/
+* TCP：https://github.com/jawil/blog/issues/14
 
 #### 面试技巧
 
