@@ -15,7 +15,7 @@ const deepCopy = obj => {
 
     let res = obj instanceof Array ? [] : {}
     for (let key in obj) {
-        res[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key]
+        obj.hasOwnProperty(key) ? res[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key] : ''
     }
     return res
 }
