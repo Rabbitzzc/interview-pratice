@@ -22,9 +22,51 @@ var widthOfBinaryTree = function (root) {
 
     let max = 0
     for (let i = 0; i < res.length; i++) {
-        let temp = res.join('').replace(/(^\s*)|(\s*$)/g,"")
+        let temp = res[i].join('').replace(/(^\s*)|(\s*$)/g,"")
         console.log(temp)
         if (temp.length > max) max = temp.length
     }
     return max
 };
+
+const root = {
+    value: 1,
+    left: {
+        value:2,
+        right: {
+            value:3,
+            left: {
+                value:4,
+                left: {
+                    value:5,
+                    left: {
+                        value:6,
+                    },
+                    right: {
+                        value:7,
+                    }
+                }
+            }
+        }
+    },
+    right: {
+        value:2,
+        right: {
+            value:3,
+            left: {
+                value:4,
+                left: {
+                    value:5,
+                    left: {
+                        value:6,
+                    },
+                    right: {
+                        value:7,
+                    }
+                }
+            }
+        }
+    }
+}
+
+widthOfBinaryTree(root)
