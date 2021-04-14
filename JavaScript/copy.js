@@ -1,6 +1,6 @@
 //  浅拷贝
 const shadowCopy = (obj) => {
-    if (obj === null || typeof obj !== 'object') return
+    if (obj === null || typeof obj !== 'object') return obj
 
     let res = obj instanceof Array ? [] : {}
     for (let key in obj) {
@@ -11,7 +11,7 @@ const shadowCopy = (obj) => {
 
 // 深拷贝
 const deepCopy = obj => {
-    if (obj === null || typeof obj !== 'object') return
+    if (obj === null || typeof obj !== 'object') return obj
 
     let res = obj instanceof Array ? [] : {}
     for (let key in obj) {
