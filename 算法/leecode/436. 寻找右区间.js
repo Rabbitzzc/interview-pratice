@@ -1,0 +1,3 @@
+var findRightInterval = function(intervals) {
+
+};

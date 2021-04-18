@@ -33,4 +33,4 @@ const backtracking = (queue, result, temp = '', current = '') => {
     }
 }
 
-console.log(permutation('a'))
+console.log(permutation('abc'))
