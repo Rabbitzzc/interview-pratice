@@ -8,7 +8,7 @@ const subsets = (nums) => {
     // 排序
     nums.sort((a, b) => a - b)
     let result = []
-    backtracking(nums, result, [], 0)
+    backtracking(nums, result, [])
     return result
 }
 
@@ -16,14 +16,14 @@ const subsets = (nums) => {
  * 需要的参数有哪些呢
  * 结果 result，当前的queue队列，
  */
-const backtracking = (nums, result, temp, start) => {
+const backtracking = (nums, result, temp) => {
     // js 引用-注意
     result.push([...temp])
 
-    for (let i = start; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         // 注入
         temp.push(nums[i])
-        backtracking(nums, result, temp, ++start) // 保证顺序 - 因此是无需的组合，将 start++ 即可
+        backtracking(nums.slice(i+1), result, temp) // 保证顺序 - 因此是无需的组合，将 start++ 即可
         // 弹出 - 回退
         temp.pop()
     }
