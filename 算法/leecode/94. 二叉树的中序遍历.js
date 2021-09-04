@@ -5,7 +5,7 @@
  const inorderTraversalNode = (node, list) => {
     if(!node) return;
     inorderTraversalNode(node.left, list)
-    list.push(node)
+    list.push(node.val)
     inorderTraversalNode(node.right, list)
 }
 
