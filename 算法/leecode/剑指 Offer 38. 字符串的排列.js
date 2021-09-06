@@ -21,9 +21,8 @@ const backtracking = (queue, result, temp = '', current = '') => {
         return result.push(current)
     }
 
-    // 当前节点的，集合遍历
+    // 选择列表，遍历
     for (let i = 0; i < queue.length; i++) {
-
         //节点处理
         const item = queue.shift()
         // 递归
