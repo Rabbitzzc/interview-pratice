@@ -33,41 +33,24 @@ var levelOrder = function (root) {
 
 // 通过先进先出队列也可以 - 参考https://github.com/sisterAn/JavaScript-Algorithms/issues/46
 // 这个视频一看就懂 https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/er-cha-shu-de-ceng-xu-bian-li-by-leetcode-solution/
-const levelOrderBottom = function (root) {
-    if (!root) return []
-    let res = [],
-        queue = [root] // 辅助队列
-    while (queue.length) {
-        let curr = [],
-            temp = []
-        while (queue.length) {
-            let node = queue.shift()
-            curr.push(node.val)
-            if (node.left) temp.push(node.left)
-            if (node.right) temp.push(node.right)
-        }
-        res.push(curr)
-        queue = temp
-    }
-    return res.reverse()
-};
-
-
-const levelOrderBottom = (root) => {
+const levelOrder = root => {
     if(!root) return []
 
-    let res = [], queue = [root]
+    let res = []
+    let queue = [root]
 
-    while (queue.length) {
-        let current = [] // 存储当前队列信息
-        let temp = [] // 进入的数据，暂存区
-        while (queue.length) {
-            const node = queue.shift()
-            current.push(node.val)
-            if(node.left) temp.push(node.left)
-            if(node.right) temp.push(node.right)
+    while(queue.length) {
+        let curr = []
+        let child_queue = []
+        for(let i = 0; i < queue.length; i++) {
+            let node = queue[i]
+            curr.push(node.val)
+            if(node.left) child_queue.push(node.left)
+            if(node.right) child_queue.push(node.right)
         }
-        res.push(current)
-        queue = temp
+        res.push(curr)
+        queue = child_queue
     }
+
+    return res
 }

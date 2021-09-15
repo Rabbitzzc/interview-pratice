@@ -137,7 +137,7 @@ class PPromise {
         })
     }
 
-    // race 返回最先 resolve 的
+    // race 返回最先 resolve 的 - 有一个最先失败的，可能就全部失败了 - 通俗讲就是多个 promise “比赛”，谁先跑出结果（成功或失败）就决策谁
     static race(promises) {
         return new PPromise((resolve, reject) => {
             promises.some(promise => {
