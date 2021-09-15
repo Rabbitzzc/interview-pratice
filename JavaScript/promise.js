@@ -29,7 +29,8 @@ class PPromise {
 
     catch (onRejected) {
         return this.then(null, onRejected)
-    } finally(done) {
+    } 
+    finally(done) {
         // finally 与 catch 类似，也是 then 的变形，即 then 中的 onFulfilled = onRejected = done，这么做的话，不符合 promise 规范
         // return this.then(done, done)
 
