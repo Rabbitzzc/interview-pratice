@@ -114,3 +114,31 @@ const mergeSort = arr => {
 }
 arr = [8, 7, 6, 5, 4, 3, 2, 1]
 console.log(mergeSort(arr))
+
+/**
+ * 快速排序
+ */
+
+const quickSort = (arr) => {
+
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    let pivotIndex = Math.floor(arr.length / 2);
+    let pivot = arr.splice(pivotIndex, 1)[0];
+    let left = [];
+    let right = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < pivot) {
+            left.push(arr[i]);
+        } else {
+            right.push(arr[i]);
+        }
+
+    }
+
+    return quickSort(left).concat([pivot], quickSort(right));
+
+};

@@ -1,5 +1,6 @@
 /**
  * 判断 a 是否为 b 的实例
+ * null 并不是 Object 的实例
  */
 
 const myInstanceOf = (A, B) => {
